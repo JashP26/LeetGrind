@@ -10,6 +10,11 @@ export default function Login() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  function fillDemo() {
+    setUsername("demo");
+    setPassword("password123");
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
@@ -66,6 +71,23 @@ export default function Login() {
             {submitting ? "Logging in..." : "Log In"}
           </button>
         </form>
+
+        <div className="mt-4 rounded-lg border border-border-dark bg-bg-input/40 p-3 text-xs text-text-secondary">
+          <div className="mb-1 font-medium text-text-primary">Demo account</div>
+          <div>
+            username: <span className="text-accent-yellow">demo</span>
+          </div>
+          <div>
+            password: <span className="text-accent-yellow">password123</span>
+          </div>
+          <button
+            type="button"
+            onClick={fillDemo}
+            className="mt-2 text-accent-blue hover:underline"
+          >
+            Use demo credentials
+          </button>
+        </div>
 
         <p className="mt-4 text-center text-sm text-text-secondary">
           Don't have an account?{" "}
